@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Noto_Serif_TC } from "next/font/google";
 import { Cormorant_Garamond, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 const display = Cormorant_Garamond({
   subsets: ["latin"],
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth">
       <body className={`${display.variable} ${body.variable} ${mono.variable} antialiased`}>
+        <Analytics />
         {children}
       </body>
     </html>
