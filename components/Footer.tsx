@@ -60,8 +60,8 @@ export default function Footer() {
           {/* Right */}
           <div className="flex flex-col gap-3">
             {[
-              { label: "March 15, 2027", cn: "出發日期" },
-              { label: "March 21, 2027", cn: "回程日期" },
+              { label: "January 11, 2027", cn: "出發日期" },
+              { label: "January 15, 2027", cn: "回程日期" },
               { label: "4 Cities · 8 Destinations", cn: "旅行規模" },
             ].map((item) => (
               <div key={item.label} className="flex items-center gap-4">
