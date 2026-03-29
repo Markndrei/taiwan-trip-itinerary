@@ -1,8 +1,18 @@
-/** @type {import('next').NextConfig} */
+const { PHASE_DEVELOPMENT_SERVER, PHASE_PRODUCTION_BUILD } = require("next/constants");
+
+/** @type {import("next").NextConfig} */
 const nextConfig = {
-  images: {
-    domains: ["tile.openstreetmap.org"],
-  },
+  reactStrictMode: true,
 };
 
-module.exports = nextConfig;
+module.exports = (phase) => {
+  if (phase === PHASE_DEVELOPMENT_SERVER || phase === PHASE_PRODUCTION_BUILD) {
+    const withPWA = require("@ducanh2912/next-pwa").default({
+      dest: "public",
+      register: true,
+      skipWaiting: true,
+    });
+    return withPWA(nextConfig);
+  }
+  return nextConfig;
+};
